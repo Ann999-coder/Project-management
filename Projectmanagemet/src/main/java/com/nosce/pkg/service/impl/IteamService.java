@@ -1,5 +1,7 @@
 package com.nosce.pkg.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,12 @@ public class IteamService implements teamService {
 		teamrepository.save(team);
 		
 		
+	}
+
+	@Override
+	public List<Team> list() {
+		// TODO Auto-generated method stub
+		return teamrepository.findAll();
 	}
 
 }
