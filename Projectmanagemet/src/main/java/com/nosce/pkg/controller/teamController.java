@@ -17,21 +17,27 @@ public class teamController {
 	@Autowired
 	IteamService iteamservice;
 	
-	@RequestMapping("/")
-	public String hello() {
+	@RequestMapping("/team")
+	public String trial() {
 
 		return "hello";
 
 	}
 	
-	@PostMapping("/project/save")
+	@PostMapping("/team/save")
 	public ResponseEntity<HttpStatus> add(@RequestBody Team team){
 		
 		iteamservice.add(team);
 		return ResponseEntity.ok(HttpStatus.OK);
 		
 	}
-
+	
+	@GetMapping("team/all")
+	public List<Team> getAll(){
+		
+		return iteamservice.list();
+		
+	}
 
 
 }
