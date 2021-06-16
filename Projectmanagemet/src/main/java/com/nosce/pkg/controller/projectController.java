@@ -18,7 +18,7 @@ public class projectController {
 	@Autowired
 	IprojectService projectservice;
 
-	@RequestMapping("/")
+	@RequestMapping("/project")
 	public String hello() {
 
 		return "hello";
@@ -32,7 +32,12 @@ public class projectController {
 		return ResponseEntity.ok(HttpStatus.OK);
 		
 	}
-
-
+	
+	@GetMapping("project/all")
+	public List<Project> getAll(){
+		
+		return projectservice.list();
+		
+	}
 
 }
