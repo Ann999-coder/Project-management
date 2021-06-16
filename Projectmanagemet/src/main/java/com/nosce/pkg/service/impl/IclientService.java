@@ -1,5 +1,7 @@
 package com.nosce.pkg.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,13 @@ public class IclientService implements clientService{
 		clientrepository.save(client);
 		
 		
+	}
+
+
+	@Override
+	public List<Client> list() {
+		// TODO Auto-generated method stub
+		return clientrepository.findAll();
 	}
 
 
