@@ -17,20 +17,29 @@ public class clientController {
 	@Autowired
 	IclientService clientservice;
 
-	@RequestMapping("/")
-	public String hello() {
+	@RequestMapping("/client")
+	public String test() {
 
 		return "hello";
 
 	}
 	
-	@PostMapping("/project/save")
+	@PostMapping("/client/save")
 	public ResponseEntity<HttpStatus> add(@RequestBody Client client){
 		
 		clientservice.add(client);
 		return ResponseEntity.ok(HttpStatus.OK);
 		
 	}
+	
+	@GetMapping("client/all")
+	public List<Client> getAll(){
+		
+		return clientservice.list();
+		
+	}
+	
+
 
 
 }
