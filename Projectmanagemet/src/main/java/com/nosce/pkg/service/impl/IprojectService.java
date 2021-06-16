@@ -1,6 +1,5 @@
 package com.nosce.pkg.service.impl;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +21,12 @@ public class IprojectService implements projectService {
 		// TODO Auto-generated method stub
 		projectrepository.save(project);
 		
+	}
+
+	@Override
+	public List<Project> list() {
+		// TODO Auto-generated method stub
+		return projectrepository.findAll();
 	}
 
 }
