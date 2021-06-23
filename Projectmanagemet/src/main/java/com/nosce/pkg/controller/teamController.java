@@ -1,16 +1,19 @@
 package com.nosce.pkg.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import com.nosce.pkg.model.Team;
 import com.nosce.pkg.service.impl.IteamService;
@@ -43,6 +46,31 @@ public class teamController {
 		
 	}
 	
+	@PutMapping(value="/client/update/{team_id}",produces = "application/json")
+	public ResponseEntity<HttpStatus> update(@PathVariable("team_id") int Id,@RequestBody Team team){
+		
+		iteamservice.update(team,Id);
+		
+		return ResponseEntity.ok(HttpStatus.OK);
+		
+		
+	}
+	
+	@GetMapping("team/{team_id}")
+	public  Optional<Team> getById(@PathVariable("team_id") Long Id){
+	 return iteamservice.getById(Id);
+	 
+	 
+
+	}
+	
+	
+	@DeleteMapping(value="/team/delete/{id}",produces = "application/json")
+	public ResponseEntity<HttpStatus> deleteById(@PathVariable("id") Long Id) {
+		iteamservice.delete(Id);
+		return ResponseEntity.ok(HttpStatus.OK);
+	  }
+
 
 
 
