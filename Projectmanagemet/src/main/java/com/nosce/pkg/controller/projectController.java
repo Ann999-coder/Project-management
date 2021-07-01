@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +21,7 @@ import com.nosce.pkg.service.impl.IprojectService;
 
 
 
-
+@CrossOrigin(origins="*")
 @RestController
 public class projectController {
 	
@@ -49,7 +50,7 @@ public class projectController {
 		
 	}
 	
-	@PutMapping(value="/project/{project_id}/update",produces = "application/json")
+	@PutMapping(value="/project/update/{project_id}",produces = "application/json")
 	public ResponseEntity<HttpStatus> update(@PathVariable("project_id") int Id,@RequestBody Project project){
 		
 		projectservice.update(project,Id);
@@ -59,7 +60,7 @@ public class projectController {
 		
 	}
 	
-	@GetMapping("project/{projectid}")
+	@GetMapping("project/edit/{projectid}")
 	public  Optional<Project> getById(@PathVariable("projectid") Long Id){
 	 return projectservice.getById(Id);
 	 
@@ -68,7 +69,7 @@ public class projectController {
 	}
 	
 	
-	@DeleteMapping(value="/project/{id}/delete",produces = "application/json")
+	@DeleteMapping(value="/project/delete/{id}",produces = "application/json")
 	public ResponseEntity<HttpStatus> deleteById(@PathVariable("id") Long Id) {
 		projectservice.delete(Id);
 		return ResponseEntity.ok(HttpStatus.OK);
