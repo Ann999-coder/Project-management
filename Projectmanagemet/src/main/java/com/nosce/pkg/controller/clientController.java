@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nosce.pkg.model.Client;
 import com.nosce.pkg.service.impl.IclientService;
 
+@CrossOrigin(origins="*")
 @RestController
 public class clientController {
 	
@@ -56,7 +58,7 @@ public class clientController {
 		
 	}
 	
-	@GetMapping("client/{client_id}")
+	@GetMapping("client/edit/{client_id}")
 	public  Optional<Client> getById(@PathVariable("client_id") Long Id){
 	 return clientservice.getById(Id);
 	 
