@@ -9,7 +9,7 @@ import com.nosce.pkg.model.Project;
 public interface projectService {
 
 	public void add(Project project);
-	public void update(Project project,int projectid);
+	public void update(Project project,Long projectid);
 	Optional<Project> getById(Long projectid);
 	
 	public void delete(Long projectid);
