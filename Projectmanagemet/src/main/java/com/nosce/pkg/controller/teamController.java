@@ -49,7 +49,7 @@ public class teamController {
 	}
 	
 	@PutMapping(value="/team/update/{team_id}",produces = "application/json")
-	public ResponseEntity<HttpStatus> update(@PathVariable("team_id") int Id,@RequestBody Team team){
+	public ResponseEntity<HttpStatus> update(@PathVariable("team_id") Long Id,@RequestBody Team team){
 		
 		iteamservice.update(team,Id);
 		
