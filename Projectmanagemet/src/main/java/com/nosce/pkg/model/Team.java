@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="TBL_TEAM")
@@ -16,22 +17,28 @@ public class Team {
     private Long id;
      
     @Column(name="first_name")
+    @NotBlank(message = "fName is mandatory")
     private String firstName;
      
     @Column(name="last_name")
+    @NotBlank(message = "lName is mandatory")
     private String lastName;
      
     @Column(name="email", nullable=false, length=200)
+    @NotBlank(message = "email is mandatory")
     private String email;
     
     @Column(name="Contact")
+    @NotBlank(message = "contact is mandatory")
     private String contact;
     
     
     @Column(name="Password")
+    @NotBlank(message = "password is mandatory")
     private String password;
     
     @Column(name="Status")
+    @NotBlank(message = "status is mandatory")
     private String status;
 
 	public Long getId() {
