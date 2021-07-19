@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nosce.pkg.model.Project;
+import com.nosce.pkg.repository.projectRepository;
 import com.nosce.pkg.service.impl.IprojectService;
 
 
@@ -27,6 +28,7 @@ public class projectController {
 	
 	@Autowired
 	IprojectService projectservice;
+	projectRepository projectrepository;
 
 	@RequestMapping("/project")
 	public String hello() {
@@ -51,7 +53,7 @@ public class projectController {
 	}
 	
 	@PutMapping(value="/project/update/{project_id}",produces = "application/json")
-	public ResponseEntity<HttpStatus> update(@PathVariable("project_id") int Id,@RequestBody Project project){
+	public ResponseEntity<HttpStatus> update(@PathVariable("project_id") Long Id,@RequestBody Project project){
 		
 		projectservice.update(project,Id);
 		
