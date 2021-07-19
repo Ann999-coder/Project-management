@@ -10,7 +10,7 @@ import com.nosce.pkg.model.Client;
 public interface clientService {
 
 	public void add(Client client);
-	public void update(Client client,int clientid);
+	public void update(Client client,Long clientid);
 	Optional<Client> getById(Long clientid);
 	
 	public void delete(Long clientid);
