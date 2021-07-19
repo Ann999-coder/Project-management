@@ -9,7 +9,7 @@ import com.nosce.pkg.model.Team;
 public interface teamService {
 
 	public void add(Team team);
-	public void update(Team team,int teamid);
+	public void update(Team team,Long teamid);
 	Optional<Team> getById(Long teamid);
 	
 	public void delete(Long teamid);
