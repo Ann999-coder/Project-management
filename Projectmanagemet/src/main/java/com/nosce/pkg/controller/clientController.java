@@ -49,7 +49,7 @@ public class clientController {
 	}
 	
 	@PutMapping(value="/client/update/{client_id}",produces = "application/json")
-	public ResponseEntity<HttpStatus> update(@PathVariable("client_id") int Id,@RequestBody Client client){
+	public ResponseEntity<HttpStatus> update(@PathVariable("client_id") Long Id,@RequestBody Client client){
 		
 		clientservice.update(client,Id);
 		
