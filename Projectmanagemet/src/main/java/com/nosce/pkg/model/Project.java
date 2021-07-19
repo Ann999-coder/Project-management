@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="TBL_PROJECT")
@@ -15,12 +16,15 @@ public class Project {
     private Long id;
      
     @Column(name="ProjectName")
+    @NotBlank(message = "Name is mandatory")
     private String projectName;
      
     @Column(name="Type")
+    @NotBlank(message = "type is mandatory")
     private String type;
      
     @Column(name="Subject")
+    @NotBlank(message = "subject is mandatory")
     private String subject;
 
 	public Long getId() {
